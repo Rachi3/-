@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int BinarySearch(int arr[], int arrLen,int Target);
+int BinarySearch(int arr[], int low, int high, int Target);
 void printArr(int arr[], int arrLen);
 void serArrRandom(int arr[], int arrLen);
 void sortArr(int arr[], int arrLen);
@@ -13,7 +13,7 @@ int main()
     int random_number;
 
     // srand() 함수를 사용하여 난수 발생기를 초기화
-    //srand(time(NULL)); // seed 값을 현재 시간으로 설정
+    srand(time(NULL)); // seed 값을 현재 시간으로 설정
 
  
     int arr[10] = { 0 }, N = 10, target = 0;
@@ -26,7 +26,7 @@ int main()
     printf("당신이 찾는 값은 무엇인가요? : ");
     scanf("%d",&target);
 
-    target=BinarySearch(arr, N, target);
+    target=BinarySearch(arr,0, N, target);
 	
     if (target == -1)
         printf("당신이 찾던 값은 현재 배열에 존재하지 않습니다.\n");
@@ -36,18 +36,20 @@ int main()
     return 0;
 }
 
-int BinarySearch(int arr[], int arrLen,int Target)
+int BinarySearch(int arr[], int low,int high ,int Target)
 {
-    int idx = arrLen / 2;
+ 
 
-    while (idx > 0 && idx < arrLen)
+    while (low<=high)
     {
-        if (arr[idx] == Target)
-            return idx;
-        else if (arr[idx] > Target)
-            idx = idx / 2;
+        int mid = (low + (high - low) / 2);
+
+        if (arr[mid] == Target)
+            return mid;
+        else if (arr[mid] > Target)
+            high = mid - 1;
         else
-            idx = (arrLen + idx) / 2;
+            low = mid + 1;//어차피 값이 복사되어 오는것이기 때문에 그냥 바로 사용함
     }
     return -1;
 }
