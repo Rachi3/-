@@ -29,11 +29,11 @@ int get(ArrayList* L, int r);
 void replace(ArrayList* L, int r, int e);
 
 int add(ArrayList* L, int r, int e);
-int addFirst(ArrayList* L, int r, int e);
-int addLast(ArrayList* L, int r, int e);
+int addFirst(ArrayList* L,int e);
+int addLast(ArrayList* L,int e);
 
 int remove(ArrayList* L, int r);
 int removeFirst(ArrayList* L);
 int removeLast(ArrayList* L);
 
-
+void printList(ArrayList* L);
