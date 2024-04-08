@@ -5,7 +5,7 @@ typedef struct __linkedList {
 	struct __linkedList* nextNode;
 }LINKEDLIST;
 
-void printList(LINKEDLIST* head);
+void printList(LINKEDLIST* Head);
 //시작
 LINKEDLIST* Linit();
 
@@ -17,9 +17,9 @@ void Append(LINKEDLIST* Head, int data, int NodeCnt);//NodeCnt번째 자리에 삽입 1
 
 // 삭제
 
-int removeNode(LINKEDLIST* L, int data);
-int removeFirst(LINKEDLIST* L);
-int removeLast(LINKEDLIST* L);
+int removeNode(LINKEDLIST* Head, int data);
+int removeFirst(LINKEDLIST* Head);
+int removeLast(LINKEDLIST* Head);
 
 //탐색
 
